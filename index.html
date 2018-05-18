@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>index page</title>
+</head>
+
+<body>
+  <p>We are using Node.js<script>document.write(process.versions.node)</script>, </p>
+  <p>Chromium<script>document.write(process.versions.chrome)</script>, </p>
+  <p>and Electron<script>document.write(process.versions.electron)</script>. </p>
+  <br>
+  <p><a href="#" id="drag">drag me will send index.html to outside</a></p>
+
+  <script>
+    require('./renderer.js')
+  </script>
+</body>
+
+</html>
