@@ -7,12 +7,17 @@
 </head>
 
 <body>
-  <p>We are using Node.js<script>document.write(process.versions.node)</script>, </p>
-  <p>Chromium<script>document.write(process.versions.chrome)</script>, </p>
-  <p>and Electron<script>document.write(process.versions.electron)</script>. </p>
-  <br>
-  <p><a href="#" id="drag">drag me will send index.html to outside</a></p>
+  <p>We are using Node.js <script>document.write(process.versions.node)</script>, 
+    Chromium <script>document.write(process.versions.chrome)</script>, 
+    and Electron <script>document.write(process.versions.electron)</script>. </p>
+  
+  <p><a href="#" id="drag">将index.html拖拽到应用外</a></p>
 
+  <div id="holder" style="width: 200px; padding: 30px 0; background: #cbffc6; text-align: center;">
+    拖拽文件到这里
+  </div>
+  <div id="holder-tips"></div>
+ 
   <script>
     require('./renderer.js')
   </script>

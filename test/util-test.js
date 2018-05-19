@@ -34,7 +34,35 @@ module.exports = {
       })
     })
   },
-  
+
+  // 下载文件到本地（note: 未测试）
+  downloadFile(app, mainWindow) {
+    mainWindow && mainWindow.webContents.session.on('will-download', (event, item, webContents) => {
+      let savePath = path.join(__dirname, './tmp/download.html');
+      item.setSavePath(savePath)
+      console.log(233);
+
+      item.on('updated', (event, state) => {
+        if (state === 'interrupted') {
+          console.log('下载已中断，但可以恢复')
+        } else if (state === 'progressing') {
+          if (item.isPaused()) {
+            console.log('下载已暂停')
+          } else {
+            console.log(`Received bytes: ${item.getReceivedBytes()}`)
+          }
+        }
+      })
+      item.once('done', (event, state) => {
+        if (state === 'completed') {
+          console.log('下载成功')
+        } else {
+          console.log(`下载失败: ${state}`)
+        }
+      })
+    })
+  },
+
 };
 
 

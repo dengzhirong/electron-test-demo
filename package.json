@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . demo --out ../package --icon ./static/logo/logo.icns --overwrite"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -16,6 +17,12 @@
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
+  "mac": {
+    "icon": "build/icons/icon.icns"
+  },
+  "win": {
+    "icon": "build/icons/icon.ico"
+  },
   "devDependencies": {
     "electron": "^2.0.0"
   },

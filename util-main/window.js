@@ -19,7 +19,6 @@ module.exports = {
       protocol: 'file:',
       slashes: true,
       urlOpts: {},
-      showDevTools: false, // 是否显示开发者工具
       webPreferences: {
         webviewTag: false,
         nodeIntegration: false
@@ -27,7 +26,7 @@ module.exports = {
     }, options)
     // console.log(options)
     let {
-      width, height, showDevTools,
+      width, height,
       pathname, protocol, slashes, urlOpts,
       onClose, onOpen
     } = options
@@ -44,8 +43,6 @@ module.exports = {
         }, urlOpts) ))
         window.show();
         onOpen && onOpen(window);
-    
-        showDevTools && window.webContents.openDevTools()
     
         window.on('closed', function () {
           onClose && onClose(window)
